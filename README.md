@@ -2,6 +2,10 @@
 
 PARALLAX//AI is a fictional, exploratory browser simulation for Scenario 001: *The Day Intelligence Vanished*. On simulated Day 0, AI-dependent services cease operating. You act as Continuity Director across energy, healthcare, logistics, finance, communications, and public trust.
 
+## Live demo
+
+[Open the PARALLAX//AI command center](https://jeevan-0508.github.io/parallax-ai/)
+
 ## Current vertical slice
 
 - Deterministic TypeScript simulation engine with seeded day-by-day transitions, bounded health scores, resource economics, dependencies, effects, cooldowns, 12 interventions, and 21 event definitions.
