@@ -9,6 +9,7 @@ Object.assign(nextConfig, {
   images: { unoptimized: true },
   basePath: isGitHubPagesBuild ? "/parallax-ai" : "",
   assetPrefix: isGitHubPagesBuild ? "/parallax-ai/" : undefined,
+  env: { NEXT_PUBLIC_BASE_PATH: isGitHubPagesBuild ? "/parallax-ai" : "" },
 });
 
 export default nextConfig;

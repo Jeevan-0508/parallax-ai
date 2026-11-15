@@ -8,6 +8,8 @@ import { EVENTS, type Sector, type SimulationState } from "@parallax/simulation"
 
 type Quality = "cinematic" | "balanced" | "mobile";
 
+const publicAsset = (path: string) => `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}${path}`;
+
 const sectorColors: Record<string, string> = { energy: "#ff5668", healthcare: "#ffb454", logistics: "#ffb454", finance: "#b4a0ff", communications: "#48e4ff", trust: "#55e5b0" };
 const regionMap = [
   { name: "NORTH ATLANTIC", lat: 42, lon: -38 }, { name: "NORTH AMERICA", lat: 35, lon: -102 },
@@ -86,7 +88,7 @@ function CameraFocus({ focus, controlsRef }: { focus: React.MutableRefObject<THR
 function Earth({ state, reducedMotion, quality, filter, onSelectRegion }: { state: SimulationState; reducedMotion: boolean; quality: Quality; filter: Sector | "all"; onSelectRegion: (name: string, position: THREE.Vector3) => void }) {
   const group = useRef<THREE.Group>(null);
   const [hovered, setHovered] = useState<string | null>(null);
-  const [dayTexture, nightTexture] = useLoader(THREE.TextureLoader, ["/textures/earth-day.jpg", "/textures/earth-night.jpg"]);
+  const [dayTexture, nightTexture] = useLoader(THREE.TextureLoader, [publicAsset("/textures/earth-day.jpg"), publicAsset("/textures/earth-night.jpg")]);
   dayTexture.colorSpace = THREE.SRGBColorSpace;
   nightTexture.colorSpace = THREE.SRGBColorSpace;
   const shaderUniforms = useMemo(() => ({ uDay: { value: dayTexture }, uNight: { value: nightTexture }, uSunDirection: { value: new THREE.Vector3(0.02, 0.12, 1) } }), [dayTexture, nightTexture]);
